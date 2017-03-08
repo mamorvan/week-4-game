@@ -33,9 +33,11 @@ header {
 
 #message {
 	border: 3px solid #50A1A7;
+	box-shadow: 10px 10px 5px 0px #71CDFF;
 	background-color: #1e1033;
 	padding: 10px;
 }
+
 
 .counter {
 	text-align: center;

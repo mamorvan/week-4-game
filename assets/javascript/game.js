@@ -1,15 +1,25 @@
-var goalScore = 0;
-var currentScore = 0;
+$(document).ready(function() {
+
+var goalScore;
+var currentScore;
 var winsCounter = 0;
 var lossesCounter = 0;
+var wonOrLost;
 
-$("#message").on("click", function() {
+function initializeVariables() {
+	goalScore = 0;
+	currentScore = 0;
+	wonOrLost = false;
+}
+
+$("#startGame").on("click", function() {
+
+	initializeVariables();
 
 	//generate random goal from 19-120 and write to goal h2
 	goalScore = Math.floor(Math.random() * 100) + 19;
 console.log("goalScore:" + goalScore);
 	$("#goal").text(goalScore);
-	currentScore = 0;
 	$("#current").text(currentScore);
 
 	//assign a random value 1-12 to each crystal
@@ -23,36 +33,45 @@ console.log("randoms:" + random1 + " " + random2 + " " + random3 + " " + random4
 	$("#purpleCrystal").attr("value",random3);
 	$("#yellowCrystal").attr("value",random4);
 
-	
 
-		$("button").on("click", function() {
-			if (currentScore < goalScore) {
-				var crystalValue = $(this).attr("value");
-				currentScore += parseInt(crystalValue);
-				$("#current").text(currentScore);
-			} //end of if current score less than goal - keep playing
+	$("button").on("click", function() {
 
-			else if (currentScore === goalScore) {
-				$("#message").text("You won! Click here to start new game");		
-				winsCounter += 1;
-				$("#wins").text(winsCounter);
-			} // end of if current equal to goal - add to wins
+		if (wonOrLost) return;
 
-			else if (currentScore > goalScore) {
-				$("#message").text("You lost. Click here to start new game");
-				lossesCounter += 1;
-				$("#losses").text(lossesCounter);
-			} // end of if current more than goal - add to losses
+		//add sound when crystal is clicked
+		var crystalSound = document.createElement("audio");
+		crystalSound.setAttribute("src", "assets/sounds/crystal.mp3");
+		
+		crystalSound.play();
 
+		// get value of crystal clicked, add value to currentScore and display currentScore to page
+		var crystalValue = $(this).attr("value");
+console.log("crystalValue" + crystalValue);
+		currentScore += parseInt(crystalValue);
+		$("#current").text(currentScore);
 
-			}) // end of button click
+		// WIN
 
-	
+		if (currentScore === goalScore) {
+			$("#message").text("You won! Click here to start new game");
+			$("#startGame").attr("class", "newMessage");	
+			winsCounter += 1;
+			$("#wins").text(winsCounter);
+			wonOrLost = true;
+		} // end of if current equal to goal - add to wins
 
-	
+		// LOSE
 
+		else if (currentScore > goalScore) {
+			$("#message").text("You lost. Click here to start new game");
+			$("#startGame").attr("class", "newMessage");
+			lossesCounter += 1;
+			$("#losses").text(lossesCounter);
+			wonOrLost = true;
+		} // end of if current more than goal - add to losses	
 
-
+	}) // end of button click
 
 
 }) // end of new game on click
+}) // end of document ready
