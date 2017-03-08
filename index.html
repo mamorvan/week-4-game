@@ -10,6 +10,9 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+	<link href="https://fonts.googleapis.com/css?family=Diplomata+SC|Griffy" rel="stylesheet">
+
+
 	<!-- my stylesheet -->
 	<link rel="stylesheet" href="assets/css/style.css">
 
@@ -18,20 +21,43 @@
 <body>
 
 	<header>
-		<h1>Crystal Collector</h1>
+		<div class="row">
+
+			<div class="col-sm-3">
+				<div class="counter">
+					<h4>WINS</h4>
+					<h2 id="wins">0</h2>
+				</div> <!--end of counter div-->
+			</div> <!-- end of wins column -->
+
+			<div class="col-sm-6">
+				<h1>Crystal Collector</h1>
+			</div> <!-- end of title div -->
+
+			<div class="col-sm-3">
+				<div class="counter">
+					<h4>LOSSES</h4>
+					<h2 id="losses">0</h2>
+				</div> <!-- end of counter div -->
+			</div> <!-- end of losses column -->
+
+		</div> <!-- end of header row -->
 	</header>
 
 	<div class="row">
 
 		<div class="col-sm-8">
 			<div id="rules">
-				<p>rules go here</p>
-				
+				<p>You will be given a random number goal at the start of the game.</p>
+				<p>There are four crystals below.  By clicking on a crystal you will add a specific amount of points to your total score.</p>
+				<p>You win the game by exactly matching your total score to the goal score.  You lose the game if your total score goes above the score goal.</p>
+				<p>The value of each crystal is hidden from you until you click on it.  The values of each crystal and the score goal will change with each new game.</p>
+	
 			</div>
 		</div> <!-- end of rules column -->
 
 		<div class="col-sm-4">
-			<div>
+			<div class="score">
 				<h4>GOAL SCORE</h4>
 				<h2 id="goal">0</h2>
 			</div>
@@ -42,74 +68,43 @@
 	<div class="row">
 
 		<div class="col-sm-4">
-			<div>
+			<div class="score">
 				<h4>CURRENT SCORE</h4>
 				<h2 id="current">0</h2>
 			</div>	
 		</div> <!-- end of current column -->
 
 		<div class ="col-sm-2">
-			<div class="crystal">
-				<button id="blueCrystal"> <img src="assets/images/blueCrystal.jpeg" alt="blue crystal" height="200" width="200"></button>
+			<div>
+				<button id="blueCrystal"> <img class="img-responsive" src="assets/images/blueCrystal.jpeg" alt="blue crystal" height="150" width="150"></button>
 			</div>
 		</div> <!-- end of crystal1 column -->
 
 		<div class ="col-sm-2">
-			<div class="crystal">
-				<button id="greenCrystal"><img src="assets/images/greenCrystal.jpeg" alt="green crystal" height="200" width="200"></button>
+			<div>
+				<button id="greenCrystal"><img class="img-responsive" src="assets/images/greenCrystal.jpeg" alt="green crystal" height="150" width="150"></button>
 			</div>
 		</div> <!-- end of crystal2 column -->
 
 		<div class ="col-sm-2">
-			<div class="crystal">
-				<button id="purpleCrystal"><img src="assets/images/purpleCrystal.jpeg" alt="purple crystal" height="200" width="200"></button>
+			<div>
+				<button id="purpleCrystal"><img class="img-responsive" src="assets/images/purpleCrystal.jpeg" alt="purple crystal" height="150" width="150"></button>
 			</div>
 		</div> <!-- end of crystal3 column -->
 
 		<div class ="col-sm-2">
-			<div class="crystal">
-				<button id="yellowCrystal"><img src="assets/images/yellowCrystal.jpeg" alt="yellow crystal" height="200" width="200"></button>
+			<div>
+				<button id="yellowCrystal"><img class="img-responsive" src="assets/images/yellowCrystal.jpeg" alt="yellow crystal" height="150" width="150"></button>
 			</div>
 		</div> <!-- end of crystal4 column -->
 
 	</div> <!-- end of 2nd row -->
 
-	<div class="row">
-
-		<div class="col-sm-offset-3 col-sm-6">
-
-			<div class="row">
-				<div id= "message">
-					<h4>You won or lost message</h4>
-				</div>
-			</div> <!-- end of row1 in center column -->
-
-			<div class="row">
-
-				<div class="col-sm-6">
-					<h4>WINS</h4>
-					<h2 id="wins">0</h2>
-
-				</div> <!-- end of wins column -->
-
-				<div class="col-sm-6">
-					<h4>LOSSES</h4>
-					<h2 id="losses">0</h2>
-
-				</div> <!-- end of losses column -->
-
-			</div> <!-- end of row 2 in center column -->
-		</div> <!-- end of center column -->
-	</div> <!-- end of 3rd row -->
-
-
-
-
-
-
-
-
-
+	
+	<div id= "message">
+		<h4>You won or lost message. Click anywhere on page to start a new game.</h4>
+	</div> <!-- end of message div -->
+				
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
