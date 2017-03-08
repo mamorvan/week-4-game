@@ -27,7 +27,9 @@ console.log("goalScore:" + goalScore);
 	var random2 = Math.floor(Math.random() * 12) + 1;
 	var random3 = Math.floor(Math.random() * 12) + 1;
 	var random4 = Math.floor(Math.random() * 12) + 1;
+
 console.log("randoms:" + random1 + " " + random2 + " " + random3 + " " + random4);
+	
 	$("#blueCrystal").attr("value",random1);
 	$("#greenCrystal").attr("value",random2);
 	$("#purpleCrystal").attr("value",random3);
@@ -53,8 +55,10 @@ console.log("crystalValue" + crystalValue);
 		// WIN
 
 		if (currentScore === goalScore) {
+			//change style and add text on start game box
+			$("#startGame").attr("id", "wonMessage");	
 			$("#message").text("You won! Click here to start new game");
-			$("#startGame").attr("class", "newMessage");	
+			
 			winsCounter += 1;
 			$("#wins").text(winsCounter);
 			wonOrLost = true;
@@ -63,8 +67,10 @@ console.log("crystalValue" + crystalValue);
 		// LOSE
 
 		else if (currentScore > goalScore) {
+			//change style and add text to start game box
+			$("#startGame").attr("id", "loseMessage");
 			$("#message").text("You lost. Click here to start new game");
-			$("#startGame").attr("class", "newMessage");
+			
 			lossesCounter += 1;
 			$("#losses").text(lossesCounter);
 			wonOrLost = true;
