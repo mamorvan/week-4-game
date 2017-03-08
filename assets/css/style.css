@@ -31,6 +31,12 @@ header {
 	padding: 10px;
 }
 
+#message {
+	border: 3px solid #50A1A7;
+	background-color: #1e1033;
+	padding: 10px;
+}
+
 .counter {
 	text-align: center;
 	border: 3px solid #50A1A7;
@@ -55,19 +61,12 @@ header {
 }
 
 button {
-	margin-top: 25px;
+	margin-top: 20px;
 	background-color: #1e1033;
 	border: 3px solid #50A1A7;
 	border-radius: 5%;
 	box-shadow: 10px 10px 5px 0px black;
 }
-
-#message{
-	text-align: center;
-	margin-top: 40px;
-	
-}
-
 
 
 
