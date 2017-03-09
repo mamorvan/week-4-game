@@ -35,6 +35,7 @@ console.log("randoms:" + random1 + " " + random2 + " " + random3 + " " + random4
 	$("#purpleCrystal").attr("value",random3);
 	$("#yellowCrystal").attr("value",random4);
 
+}) // end of new game on click
 
 	$("button").on("click", function() {
 
@@ -79,5 +80,5 @@ console.log("crystalValue" + crystalValue);
 	}) // end of button click
 
 
-}) // end of new game on click
+
 }) // end of document ready
