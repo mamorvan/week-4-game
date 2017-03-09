@@ -12,7 +12,7 @@ function initializeVariables() {
 	wonOrLost = false;
 }
 
-$("#startGame").on("click", function() {
+$(".startGame").on("click", function() {
 
 	initializeVariables();
 
@@ -35,49 +35,52 @@ console.log("randoms:" + random1 + " " + random2 + " " + random3 + " " + random4
 	$("#purpleCrystal").attr("value",random3);
 	$("#yellowCrystal").attr("value",random4);
 
+	$(".wonMessage").removeClass("wonMessage").addClass("startGame");
+	$(".loseMessage").removeClass("loseMessage").addClass("startGame");
+
 }) // end of new game on click
 
-	$("button").on("click", function() {
+$("button").on("click", function() {
 
-		if (wonOrLost) return;
+	if (wonOrLost) return;
 
-		//add sound when crystal is clicked
-		var crystalSound = document.createElement("audio");
-		crystalSound.setAttribute("src", "assets/sounds/crystal.mp3");
-		
-		crystalSound.play();
+	//add sound when crystal is clicked
+	var crystalSound = document.createElement("audio");
+	crystalSound.setAttribute("src", "assets/sounds/crystal.mp3");
+	
+	crystalSound.play();
 
-		// get value of crystal clicked, add value to currentScore and display currentScore to page
-		var crystalValue = $(this).attr("value");
+	// get value of crystal clicked, add value to currentScore and display currentScore to page
+	var crystalValue = $(this).attr("value");
 console.log("crystalValue" + crystalValue);
-		currentScore += parseInt(crystalValue);
-		$("#current").text(currentScore);
+	currentScore += parseInt(crystalValue);
+	$("#current").text(currentScore);
 
-		// WIN
+	// WIN
 
-		if (currentScore === goalScore) {
-			//change style and add text on start game box
-			$("#startGame").attr("id", "wonMessage");	
-			$("#message").text("You won! Click here to start new game");
-			
-			winsCounter += 1;
-			$("#wins").text(winsCounter);
-			wonOrLost = true;
-		} // end of if current equal to goal - add to wins
+	if (currentScore === goalScore) {
+		//change style and add text on start game box
+		$(".startGame").removeClass("startGame").addClass("wonMessage");	
+		$("#message").text("You won! Click here to start new game");
+		
+		winsCounter += 1;
+		$("#wins").text(winsCounter);
+		wonOrLost = true;
+	} // end of if current equal to goal - add to wins
 
-		// LOSE
+	// LOSE
 
-		else if (currentScore > goalScore) {
-			//change style and add text to start game box
-			$("#startGame").attr("id", "loseMessage");
-			$("#message").text("You lost. Click here to start new game");
-			
-			lossesCounter += 1;
-			$("#losses").text(lossesCounter);
-			wonOrLost = true;
-		} // end of if current more than goal - add to losses	
+	else if (currentScore > goalScore) {
+		//change style and add text to start game box
+		$(".startGame").removeClass("startGame").addClass("loseMessage");
+		$("#message").text("You lost. Click here to start new game");
+		
+		lossesCounter += 1;
+		$("#losses").text(lossesCounter);
+		wonOrLost = true;
+	} // end of if current more than goal - add to losses	
 
-	}) // end of button click
+}) // end of button click
 
 
 

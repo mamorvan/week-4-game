@@ -33,28 +33,27 @@ header {
 
 /* start game div and alternate win lose styles */
 
-#startGame {
-	margin: 20px 10px;
-	border: 3px solid #50A1A7;
-	box-shadow: 10px 10px 5px 0px #71CDFF;
-	background-color: #1e1033;
-}
-
 #message {	
 	padding: 10px;
 }
 
-#wonMessage {
+.wonMessage {
 	margin: 20px 10px;
 	border: 3px solid #50A1A7;
 	box-shadow: 10px 10px 5px 0px #EC29F5;
 	background-color: #1e1033;
 }
 
-#loseMessage {
+.loseMessage {
 	margin: 20px 10px;
 	border: 3px solid #50A1A7;
 	box-shadow: 10px 10px 5px 0px #3FB31E;
+	background-color: #1e1033;
+}
+.startGame {
+	margin: 20px 10px;
+	border: 3px solid #50A1A7;
+	box-shadow: 10px 10px 5px 0px #71CDFF;
 	background-color: #1e1033;
 }
 
