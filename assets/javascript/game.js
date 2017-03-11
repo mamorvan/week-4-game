@@ -17,7 +17,7 @@ $(".startGame").on("click", function() {
 	initializeVariables();
 
 	//generate random goal from 19-120 and write to goal h2
-	goalScore = Math.floor(Math.random() * 100) + 19;
+	goalScore = Math.floor(Math.random() * 102) + 19;
 console.log("goalScore:" + goalScore);
 	$("#goal").text(goalScore);
 	$("#current").text(currentScore);
